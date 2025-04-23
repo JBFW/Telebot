@@ -90,6 +90,6 @@ echo "$response" | jq -c '.result[]' |\
       get_file "$file_id" "$file_name"
     fi
 
-    send_reply "$chat_id" "Copy"
+    send_reply "$chat_id" "Copied"
   done
 
