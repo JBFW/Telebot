@@ -1,0 +1,16 @@
+#!/bin/sh
+
+PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin; export PATH
+
+TOKEN='<== your bot API token ==>'
+CHAT_ID='<== your chat ID ==>'
+
+URL="https://api.telegram.org/bot${TOKEN}/sendMessage"
+
+read MESSAGE
+
+if [ "x$MESSAGE" != "x" ]; then
+  curl -s -X POST $URL -d chat_id=$CHAT_ID -d text="$MESSAGE"
+  sleep 2
+fi
+

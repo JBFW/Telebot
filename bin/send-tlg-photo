@@ -1,0 +1,14 @@
+#!/bin/sh
+
+PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin; export PATH
+
+TOKEN='<== your bot API token ==>'
+CHAT_ID='<== your chat ID ==>'
+
+URL="https://api.telegram.org/bot${TOKEN}/sendPhoto"
+
+if [ "x$1" != "x" ] && [ -f "$1" ] ; then
+  curl -s -X POST $URL -F "chat_id=$CHAT_ID" -F "photo=@$1"
+  sleep 2
+fi
+
